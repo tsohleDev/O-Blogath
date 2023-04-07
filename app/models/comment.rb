@@ -1,6 +1,6 @@
 require './app/models/application_record'
 class Comment < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
   belongs_to :post
 
   before_create :increment_user_commentcounter
@@ -9,10 +9,10 @@ class Comment < ApplicationRecord
   private
 
   def increment_user_commentcounter
-    user.increment(:commentcounter).save
+    post.increment(:comments_counter).save
   end
 
   def decrement_user_commentcounter
-    user.decrement(:commentcounter).save
+    post.decrement(:comments_counter).save
   end
 end
