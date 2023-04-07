@@ -1,6 +1,6 @@
 require './app/models/application_record'
 class Post < ApplicationRecord
-  belongs_to :user, class_name: "User", foreign_key: "author_id"
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
 
   before_create :increment_user_postcounter
   before_destroy :decrement_user_postcounter

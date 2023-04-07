@@ -15,5 +15,4 @@ class Like < ApplicationRecord
   def decrement_user_likecounter
     user.decrement(:likecounter).save
   end
-
 end
