@@ -15,4 +15,8 @@ class Comment < ApplicationRecord
   def decrement_user_commentcounter
     post.decrement(:comments_counter).save
   end
+
+  # VALIDATIONS
+  # text must not be blank. and must not exceed 100 characters.
+  validates :text, presence: true, length: { maximum: 100 }
 end
