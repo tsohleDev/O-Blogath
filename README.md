@@ -122,7 +122,7 @@ To run tests, run the following command:
 
 👤 **Tsohle Mokhemisi**
 
-- GitHub: [@githubhandle](https://github.com/tsohleDev2)
+- GitHub: [@githubhandle](https://github.com/tsohleDev)
 - Twitter: [@twitterhandle](https://twitter.com/RealTsohle)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/tsohle-mokhemisi-3687401b2/)
 
@@ -170,7 +170,7 @@ If you like this project please give a⭐️ and share with your friends.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/tsohleDev/O-Blogath/blob/dev/LICENSE.md) licensed.
+This project is [MIT](https://github.com/tsohleDev/O-Blogath/blob/main/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
