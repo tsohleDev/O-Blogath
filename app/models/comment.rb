@@ -1,6 +1,6 @@
 require './app/models/application_record'
 class Comment < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
   belongs_to :post
 
   before_create :increment_user_commentcounter
