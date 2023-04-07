@@ -1,4 +1,4 @@
-require 'rails_helper\r\n'
+require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   describe 'assocations' do
