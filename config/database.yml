@@ -17,6 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  username: postgres
+  password: drt%^&Fgh456
+
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -24,27 +28,28 @@ default: &default
 development:
   <<: *default
   database: O_Blogath_development
+  encoding: unicode
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: O_Blogath
+  username: postgres
 
   # The password associated with the postgres role (username).
-  #password:
+  password: drt%^&Fgh456
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+  host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
-
+  port: 5432
+  
   # Schema search path. The server defaults to $user,public
-  #schema_search_path: myapp,sharedapp,public
+  # schema_search_path: myapp,sharedapp,public
 
   # Minimum log levels, in increasing order:
   #   debug5, debug4, debug3, debug2, debug1,
@@ -58,6 +63,8 @@ development:
 test:
   <<: *default
   database: O_Blogath_test
+  encoding: unicode
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
