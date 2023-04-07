@@ -9,10 +9,10 @@ class Comment < ApplicationRecord
   private
 
   def increment_user_commentcounter
-    user.increment(:commentcounter).save
+    post.increment(:comments_counter).save
   end
 
   def decrement_user_commentcounter
-    user.decrement(:commentcounter).save
+    post.decrement(:comments_counter).save
   end
 end
