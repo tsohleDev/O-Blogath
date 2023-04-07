@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   def recent_comments
     comments.order(created_at: :desc).limit(5)
   end
-  
+
   private
 
   def increment_user_postcounter
@@ -21,13 +21,13 @@ class Post < ApplicationRecord
     author.decrement(:posts_counter).save
   end
 
-  #VALIDATIONS
-  #Title must not be blank.
+  # VALIDATIONS
+  # Title must not be blank.
   validates :title, presence: true
-  #Title must not exceed 250 characters.
+  # Title must not exceed 250 characters.
   validates :title, length: { maximum: 250 }
-  #CommentsCounter must be an integer greater than or equal to zero.
+  # CommentsCounter must be an integer greater than or equal to zero.
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  #LikesCounter must be an integer greater than or equal to zero.
+  # LikesCounter must be an integer greater than or equal to zero.
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 end
