@@ -11,6 +11,14 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
+  def likes_counter
+    likes.count
+  end
+
+  def comments_counter
+    comments.count
+  end
+
   private
 
   def increment_user_postcounter

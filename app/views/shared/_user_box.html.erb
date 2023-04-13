@@ -1,0 +1,9 @@
+<div class="user box-shadow border-radius">
+  <img class="user--image border-radius" src="<%= user.photo %>" alt="<%user.name%>" />
+  
+  <a class="user--info flex-column" title="view user details" href="/users/<%= user.id %>">
+    <h2 class="user-name"><%= user.name %></h2>
+      
+    <p class="post-count">Number of posts: <%= user.posts_counter || 0%> </p>
+  </a>
+</div>
