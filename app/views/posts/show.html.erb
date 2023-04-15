@@ -27,5 +27,6 @@
 </div>
   </section>
 
-
+  <%= link_to "New Comment", "/users/1/posts/#{@post.id}/comments/new" %>
+  <%= link_to 'Like', like_post_url %>
 </article>
