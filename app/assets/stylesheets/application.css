@@ -32,6 +32,10 @@
   margin: 5vw;
 }
 
+.hidden {
+  display: none;
+}
+
 .user {
   display: flex;
   margin-bottom: 3vw;

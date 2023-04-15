@@ -1,0 +1,13 @@
+<%# create a form to create a post %>
+
+<%= form_with model: post, url: user_posts_path(user) do |form| %>
+    <div>
+      <%= form.label :title%>
+      <%= form.text_field :title, required: true, autofocus: true %>
+    </div>
+    <div>
+      <%= form.label :text %>
+      <%= form.text_area :text, required: true, autofocus: true %>
+    </div>
+    <%= form.submit "submit" %>
+<% end %>
