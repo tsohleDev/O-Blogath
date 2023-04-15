@@ -1,0 +1,9 @@
+<h1>New Comment</h1>
+
+<%= form_with model: [@post, @comment], url: create_post_comment_path do |form| %>
+    <div>
+      <%= form.label :text %>
+      <%= form.text_area :text, required: true, autofocus: true %>
+    </div>
+    <%= form.submit "submit" %>
+<% end %>

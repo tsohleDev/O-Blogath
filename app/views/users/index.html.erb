@@ -1,1 +1,8 @@
-<h1>A list of all users</h1>
+<body class="user-container flex-column">
+  <h1>Users</h1>
+  <%= link_to 'New Post', '/users/1/posts/new' %>
+
+  <% @users.each do |user| %>
+    <%= render 'shared/user_box', user: user %>
+  <% end %>
+</body>
