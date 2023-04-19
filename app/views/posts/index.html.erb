@@ -10,6 +10,8 @@
       <a class="flex-column posts td-none" href="posts/<%=post.id%>">
         <h3 class="fs-3" >Post #<%= index+1 %></h3>
         <p> <%= post.title %> </p>
+
+        <p> <%= post.text %>
         <div class="flex-row-end td-none">
           <p>Comments: <%= post.comments_counter %> </p>
           <p>Likes: <%= post.likes_counter %> </p>
@@ -20,7 +22,9 @@
       <div class="comments-container">
         Comments: 
           <div class="flex-column">
-          
+          <% post.recent_comments.each do |comment| %>
+            <span><%= comment.user.name %> : <%= comment.text %></span>
+          <% end %>
           </div>
       </div>
       </section>
