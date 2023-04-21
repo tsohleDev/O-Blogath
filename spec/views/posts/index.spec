@@ -55,7 +55,7 @@ RSpec.describe 'Post', type: :system do
   it 'can see how many likes a post has' do
     visit "/users/#{@user.id}/posts"
     expect(page).to have_text('Likes:')
-  end 
+  end
 
   it 'can see the pagination' do
     visit "/users/#{@user.id}/posts"
@@ -64,7 +64,7 @@ RSpec.describe 'Post', type: :system do
 
   it 'redirects to the post page when the user clicks on the post title' do
     visit "/users/#{@user.id}/posts"
-    
+
     post = @posts[0]
     click_on post.title
     expect(page).to have_current_path("/users/#{@user.id}/posts/#{post.id}")
