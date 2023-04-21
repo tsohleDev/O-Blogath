@@ -12,17 +12,17 @@ RSpec.describe 'Users', type: :system do
                 bio: 'Teacher from Poland.')
   end
   let!(:users) { [first_user, second_user] }
+
+  let(:posts) {[
+    [Post.create(author: users[0], title: 'Hey1', text: 'This is my first post'),
+    Post.create(author: users[0], title: 'Hey2', text: 'This is my first post')],
+    [Post.create(author: users[1], title: 'Hey3', text: 'This is my first post')]
+  ]}
+
   it 'username of all users' do
     users.each do |user|
       visit "/users/#{user.id}"
       expect(page).to have_text(user.name)
-    end
-  end
-
-  it 'can see the user profile picture' do
-    users.each do |user|
-      visit "/users/#{user.id}"
-      expect(page).to have_selector("img[src='#{user.photo}']")
     end
   end
 
@@ -33,11 +33,62 @@ RSpec.describe 'Users', type: :system do
     end
   end
 
+  it 'can see the user profile picture' do
+    users.each do |user|
+      visit "/users/#{user.id}"
+      expect(page).to have_selector("img[src='#{user.photo}']")
+    end
+  end
+
   it 'user and shows bio' do
     users.each do |user|
       visit "/users/#{user.id}"
       expect(page).to have_text('Bio')
       expect(page).to have_text(user.bio.to_s)
+    end
+  end
+
+  it 'see how many likes it has' do
+    users.each_with_index  do |user, i|
+      visit "/users/#{user.id}"
+      posts[i].each do |post|
+        if post.likes_counter > 0
+          expect(page).to have_text("Likes: #{post.likes_counter}")
+        end
+      end
+    end
+  end
+
+  it 'see how many comments it has' do
+    users.each_with_index  do |user, i|
+      visit "/users/#{user.id}"
+      posts[i].each do |post|
+        if post.comments_counter > 0
+          expect(page).to have_text("Comments: #{post.comments_counter}")
+        end
+      end
+    end
+  end
+
+  it 'see the body of the post' do
+    users.each_with_index  do |user, i|
+      visit "/users/#{user.id}"
+      posts[i].each do |post|
+        if post.likes_counter > 0
+          expect(page).to have_text("#{post.text[0...99]}")
+        end
+      end
+    end
+  end
+
+  it 'see title of post' do
+    users.each_with_index  do |user, i|
+      visit "/users/#{user.id}"
+      posts[i].each do |post|
+        if post.likes_counter > 0
+          expect(page).to have_text("Likes: #{post.title}")
+        end
+      end
     end
   end
 

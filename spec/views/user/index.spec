@@ -25,4 +25,17 @@ RSpec.describe 'User', type: :system do
       expect(page).to have_selector("img[src='#{user.photo}']")
     end
   end
+
+  it 'displays the number of posts each user has written' do
+    visit '/users'
+    @users.each do |user|
+      expect(page).to have_text("Number of posts: #{user.posts_counter}")
+    end
+  end
+
+  it 'redirects to the user\'s show page when you click on a user' do
+    visit '/users'
+    click_on @user1.id
+    expect(page).to have_current_path("/users/#{@user1.id}")
+  end
 end
