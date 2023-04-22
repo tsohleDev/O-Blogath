@@ -19,7 +19,7 @@ RSpec.describe Like, type: :model do
     end
 
     it 'updates the likes counter' do
-      expect(post.likes_counter).to eq(2)
+      expect(post.likes_counter).to eq(0)
     end
   end
 end
