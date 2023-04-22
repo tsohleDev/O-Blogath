@@ -1,0 +1,31 @@
+<section class="posts-container">
+    <% user.recent_posts.each_with_index do |post,index| %>
+      <a class="flex-column posts td-none" href="posts/<%=post.id%>">
+        <h3 class="fs-3"><%= post.title %></h3> 
+        <% if post.text.length > 100 %>
+          <p>
+            <%= post.text[0..99] + "..." %>
+          </p>
+        <% else %>
+          <p>
+            <%= post.text %>
+          </p>
+        <% end %>
+        <div class="flex-row-end td-none">
+          <p>Comments: <%= post.comments_counter %> </p>
+          <p>Likes: <%= post.likes_counter %> </p>
+         </div>
+      </a>
+
+      <% if with_comments %>
+        <div class="comments-container">
+        Comments: 
+          <div class="flex-column">
+          <% post.recent_comments.each do |comment| %>
+            <span><%= comment.user.name %> : <%= comment.text %></span>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+</section>

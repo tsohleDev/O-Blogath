@@ -8,17 +8,6 @@
       </div>
     </section>
 
-    <section class="posts-container">
-        <% @user.recent_posts.each_with_index do |post,index| %>
-          <a class="flex-column posts td-none" href="<%= @user.id%>/posts/<%=post.id%>">
-            <h3 class="fs-3">Post #<%= index+1 %></h3> 
-             <p> <%= post.title %> </p>
-             <div class="flex-row-end td-none">
-              <p>Comments: <%= post.comments_counter %> </p>
-              <p>Likes: <%= post.likes_counter %> </p>
-             </div>
-          </a>
-        <% end %>
-    </section>
+    <%= render 'shared/post_preview',  user: @user, with_comments:false%>
     <a class="td-none flex-row-middle button"  href="<%=@user.id%>/posts">See all posts</a>
 </body>

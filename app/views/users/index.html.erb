@@ -1,6 +1,9 @@
 <body class="user-container flex-column">
   <h1>Users</h1>
-  <%= link_to 'New Post', '/users/1/posts/new' %>
+
+  <%= form_with(url: destroy_user_session_path, method: :delete) do |form| %>
+    <%= form.submit 'Sign Out' %>
+  <% end %>
 
   <% @users.each do |user| %>
     <%= render 'shared/user_box', user: user %>

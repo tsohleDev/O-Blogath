@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:index, :show] do
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   get '/error', to: 'users#error'
+  get '/photo', to: 'users#photo'
 
   post '/users/:user_id/posts/:post_id/comments', to: 'comments#create', as: 'create_post_comment'
   get '/users/:user_id/posts/:id/like', to: 'posts#like', as: 'like_post'
